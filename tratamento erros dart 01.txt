@@ -1,0 +1,24 @@
+void main(){
+  
+  
+  try { // tenta executar alguma coisa
+    
+    print((2/0).toInt());
+    
+  }catch(e, stackStrace){ // captura a falha  
+    print('erro: $e');   
+    
+    //rethrow; // propagar erro
+    //throw Exception("Ocorreu um erro X"); // retorna um novo erro
+    throw CustomError('erro customizado');
+  }
+  
+  
+}
+
+class CustomError implements Exception{
+  
+  final String error;
+  CustomError(this.error);
+
+}
